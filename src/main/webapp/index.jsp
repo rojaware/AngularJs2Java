@@ -30,41 +30,76 @@
 </script>
 </head>
 <body>
-<div class="container">
-  <div class="jumbotron">
-   <h1>AngularJS to Java</h1>
-    <p>AuglarJS interface with Bootstrap to access YAML based Configuration Manager in Java</p> 
-  </div>
-	<div data-ng-app="myApp">
-		<div data-ng-controller="MyController">
-			<button type="button" class="btn btn-success btn-lg" data-ng-click="getDataFromServer()">Fetch data from
-				server</button>
-			<p>Released Name : {{config.released}}</p>
-			<p>Version Name : {{config.version}}</p>
+	<div class="container">
+		<div class="jumbotron">
+			<h1>AngularJS to Java</h1>
+			<p>AuglarJS interface with Bootstrap to access YAML based
+				Configuration Manager in Java</p>
+		</div>
+		<div data-ng-app="myApp">
+			<div data-ng-controller="MyController">
+				<button type="button" class="btn btn-success btn-lg"
+					data-ng-click="getDataFromServer()">Fetch configuration from server</button>
 
-			<p>URL : {{config.connection.url}}</p>
-			<p>DB Pool Size : {{config.connection.poolSize}}</p>
-			<p>Protocols :</p>
-
-			<ul>
-				<li data-ng-repeat="protocol in config.protocols">{{protocol}}
-				</li>
-			</ul>
-			<p>Users :</p>
-			<table id="searchTextResults" class="table table-hover">
-				<tr>
-					<th>Name</th>
-					<th>Password</th>
-				</tr>
-				<tr data-ng-repeat="(key,value) in config.users">
-					<td>{{key}}</td>
-					<td>{{ value }}</td>
-				</tr>
-			</table>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Value</th>
+							<th>Others</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Released</td>
+							<td>{{config.released}}</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Version Name</td>
+							<td>{{config.version}}</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>URL</td>
+							<td>{{config.connection.url}}</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>DB Pool Size</td>
+							<td>{{config.connection.poolSize}}</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Protocols</td>
+							<td><ul>
+									<li data-ng-repeat="protocol in config.protocols">{{protocol}}
+									</li>
+								</ul></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+				<p>
+					<button type="button" class="btn btn-info" data-toggle="collapse"
+						data-target="#demo">User List</button>
+				<div id="demo" class="collapse">
+					<table id="searchTextResults" class="table table-hover">
+						<tr>
+							<th>Name</th>
+							<th>Password</th>
+						</tr>
+						<tr data-ng-repeat="(key,value) in config.users">
+							<td>{{key}}</td>
+							<td>{{ value }}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
 		</div>
 	</div>
-	  </div>
 	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+	<script
+		src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 </body>
 </html>
