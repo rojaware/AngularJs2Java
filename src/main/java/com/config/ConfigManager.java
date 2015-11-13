@@ -59,7 +59,7 @@ public class ConfigManager {
 		System.out.println("Hello World!");
 		ConfigManager app = ConfigManager.instance();
 		Configuration config = app.getConfig();
-		System.out.println("URL = " + config.getConnection().getUrl());
+		System.out.println("URL = " + config.getConnections().get("msSQL").getDriver());
 
 	}
 }

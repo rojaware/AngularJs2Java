@@ -9,7 +9,7 @@ import java.util.Map;
 public final class Configuration { 
     private Date released;
     private String version;
-    private Connection connection;
+    private Map<String, Connection> connections;
     private List< String > protocols;
     private Map< String, String > users; 
  
@@ -29,19 +29,23 @@ public final class Configuration {
         this.version = version;
     }
  
-    public Connection getConnection() {
-        return connection;
-    }
  
-    public void setConnection(Connection connection) {
-        this.connection = connection;
-    }
- 
-    public List< String > getProtocols() {
-        return protocols;
-    }
+  
 
-    public void setProtocols(List< String > protocols) {
+
+    public Map<String, Connection> getConnections() {
+		return connections;
+	}
+
+	public void setConnections(Map<String, Connection> connections) {
+		this.connections = connections;
+	}
+
+	public List<String> getProtocols() {
+		return protocols;
+	}
+
+	public void setProtocols(List< String > protocols) {
         this.protocols = protocols;
     }
  
@@ -58,7 +62,7 @@ public final class Configuration {
         return new StringBuilder()
             .append( format( "Version: %s\n", version ) )
             .append( format( "Released: %s\n", released ) )
-            .append( format( "Connecting to database: %s\n", connection ) )
+            .append( format( "Connecting to database: %s\n", connections ) )
             .append( format( "Supported protocols: %s\n", protocols ) )
             .append( format( "Users: %s\n", users ) )
             .toString();

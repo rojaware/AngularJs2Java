@@ -1,10 +1,21 @@
 version: 1.0
 released: 2012-11-30
 
-# Connection parameters
-connection:
-    url: jdbc:mysql://localhost:3306/db
+# Connection parameters - !!com.config.Connection
+connections:
+  mySQL: 
+    driver: com.mysql.jdbc.Driver
+    password:
     poolSize: 5
+    url: jdbc:mysql://localhost:3306/test
+    userid: root
+
+  msSQL: 
+    driver: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    password: p
+    poolSize: 5
+    url: jdbc:sqlserver://
+    userid: p
 
 # Protocols
 protocols:

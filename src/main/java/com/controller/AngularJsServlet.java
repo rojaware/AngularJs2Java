@@ -11,7 +11,7 @@ import org.apache.log4j.Logger;
 import com.config.ConfigManager;
 import com.config.Configuration;
 import com.google.gson.Gson;
-import com.model.PersonData;
+import com.model.Client;
 
 public class AngularJsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -39,7 +39,7 @@ public class AngularJsServlet extends HttpServlet {
 		
 	}
 	private String getPerson() {
-		PersonData personData = new PersonData();
+		Client personData = new Client();
 		personData.setFirstName("Mohaideen");
 		personData.setLastName("Jamil");
 
